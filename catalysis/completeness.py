@@ -308,7 +308,7 @@ def category_summary(categories, syn_df=None, as_df=True, nans=False):
     if syn_df is not None:
         # Remove any None objects that could happen in case of
         # connector with no other annotation
-        ids_syn = set(filter(None.__ne__, syn_df.index.values))
+        ids_syn = {v for v in syn_df.index.values if v is not None}
         if ids_cat != ids_syn:
             print(ids_cat)
             print(ids_syn)
@@ -486,7 +486,7 @@ def completeness_report(
     elif len(annos) > 0:
         anno_tag = str(annos[0])
     else:
-        anno_tag = {}
+        anno_tag = ""
     anno_name = anno_tag + id_tag
 
     id_list = list(
@@ -652,9 +652,9 @@ def match_groups(
     for id1 in annos1:
         for id2 in annos2:
             for anno_id in annos1[id1].intersection(annos2[id2]):
-                if anno_reference is "ids":
+                if anno_reference == "ids":
                     matches[anno_id] = [id1, id2]
-                elif anno_reference is "names":
+                elif anno_reference == "names":
                     matches[
                         CatmaidInterface.parse_annotation_list(anno_id, output="names")[
                             0
@@ -1143,11 +1143,11 @@ def _paired_ids_unmatched_ipsilateral(
 
     pair_list = []
     for ind, id1 in enumerate(id_list_1):
-        for id2 in id_list_1[ind + 1 :]:
+        for id2 in id_list_1[ind + 1:]:
             pair_list.append([id1, id2])
 
     for ind, id1 in enumerate(id_list_2):
-        for id2 in id_list_2[ind + 1 :]:
+        for id2 in id_list_2[ind + 1:]:
             pair_list.append([id1, id2])
     return pair_list
 
@@ -1313,7 +1313,7 @@ def match_groups_arbitrary(
             paired_annos = annos_to_pair[group_ind][nid]
             for anno in paired_annos:
                 if anno not in matches:
-                    matches[anno] = [[] for l in list_of_id_lists]
+                    matches[anno] = [[] for _ in list_of_id_lists]
                 matches[anno][group_ind].append(nid)
 
     return matches
