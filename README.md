@@ -17,3 +17,5 @@ This package was designed with python 3.5.5, and is being updated for python 3.7
 
 Copy `data/example_project_info.json` somewhere outside of the repo and fill it in with your CATMAID credentials and project information.
 Then, set the environment variable CATMAID_CREDENTIALS to the absolute path to that JSON file.
+
+Additionally, set the `CATALYSIS_DATA_ROOT` environment variable with the absolute path to the `data/` directory.
