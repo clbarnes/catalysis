@@ -154,8 +154,10 @@ def property_summary_estimated(ids, CatmaidInterface):
         DataFrame describing the completeness status of neurons
 
     """
+    # ids = [int(i) for i in ids]
     namedict = CatmaidInterface.get_neuron_names(ids)
-    names = {int(id): namedict[id] for id in namedict}
+    names = list(namedict.values())
+    # names = {int(id): namedict[id] for id in namedict}
     fraction_open_ends = []
     num_open_ends = []
     num_ends = []
