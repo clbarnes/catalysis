@@ -1,0 +1,4 @@
+black[jupyter]
+ipython
+mypy
+flake8
