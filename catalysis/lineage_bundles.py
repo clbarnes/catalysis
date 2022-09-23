@@ -1,12 +1,6 @@
-import catalysis as cat
-import catalysis.pynblast as pynblast
-
 import numpy as np
-import scipy as sp
 import pandas as pd
 
-from itertools import chain, cycle
-from sklearn import cluster
 import sys
 
 epsilon = sys.float_info.epsilon
