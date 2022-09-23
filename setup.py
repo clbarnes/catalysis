@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from os import path
 from io import open
 
@@ -15,6 +15,7 @@ def parse_requirements(extra=None):
         suffix = "-" + extra
     with open(path.join(here, "requirements" + suffix + ".txt")) as f:
         return f.read().splitlines()
+
 
 install_requires = parse_requirements()
 extras_require = {n: parse_requirements(n) for n in ["dev", "notebooks"]}

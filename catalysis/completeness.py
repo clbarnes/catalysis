@@ -1,8 +1,5 @@
-import catalysis.catmaid_interface as ci
 import catalysis.neurons as na
-import catalysis.pynblast as pynblast
 
-from collections import defaultdict
 import pandas as pd
 import numpy as np
 from numpy import NaN
