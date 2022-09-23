@@ -14,3 +14,6 @@ A similar tool, [nat](https://github.com/jefferis/rcatmaid), has been developed 
 ## Usage
 
 This package was designed with python 3.5.5, and is being updated for python 3.7.
+
+Copy `data/example_project_info.json` somewhere outside of the repo and fill it in with your CATMAID credentials and project information.
+Then, set the environment variable CATMAID_CREDENTIALS to the absolute path to that JSON file.
