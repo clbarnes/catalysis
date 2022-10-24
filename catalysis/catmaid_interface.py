@@ -6,6 +6,7 @@ import networkx as nx
 import numpy as np
 from IPython.core.display import display, HTML
 import matplotlib.colors as cl
+import os
 
 
 class CatmaidDataInterface:
@@ -1164,3 +1165,10 @@ class CatmaidDataInterface:
             )
         with open(filename, "w") as fid:
             json.dump(dat, fid)
+
+
+CRED_PATH_VARIABLE = "CATMAID_CREDENTIALS"
+
+
+def get_catmaid():
+    return CatmaidDataInterface.from_json(os.environ[CRED_PATH_VARIABLE])
